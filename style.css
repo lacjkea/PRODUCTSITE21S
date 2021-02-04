@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@400;700&family=Sriracha&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: "Prompt", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Sriracha", cursive;
+}
+
+h1 span {
+  display: inline-block;
+  color: red;
+  transform: translateY(-200px);
+}
+
+h1 span:first-child {
+  animation: anim-r-in-header 800ms ease 600ms forwards;
+  animation: name duration timing-function delay iteration-count direction
+    fill-mode;
+}
+
+@keyframes anim-r-in-header {
+  0% {
+    transform: translateY(-200px) scaleX(2) rotate(360deg);
+  }
+  100% {
+    transform: translateY(0) scaleX(-1) rotate(-30deg);
+  }
+}
+
+h1 span:last-child {
+  animation: anim-2-in-header 800ms ease 1000ms forwards;
+}
+
+@keyframes anim-2-in-header {
+  0% {
+    transform: translateY(-200px) scaleX(2) rotate(30deg);
+  }
+  100% {
+    transform: translateY(0) scaleX(1) rotate(360deg);
+  }
+}
+
+.styledesc {
+  font-weight: bold;
+}
+
+footer {
+  background: ;
+}
