@@ -2,13 +2,43 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
 img {
   max-width: 100%;
 }
 
 body {
   font-family: "Prompt", sans-serif;
+  word-wrap: break-word; /* for link in footer */
+}
+
+main {
+  display: grid;
+  max-width: 960px;
+  grid-template-columns: 1fr 1fr;
+}
+
+main h2,
+button,
+button + p {
+  grid-column: 1 / -1;
+}
+
+header,
+footer {
+  background-color: teal;
+}
+
+header {
+  padding: 5% 5%;
+}
+
+#wrapper {
+  width: 90%;
+  margin: 0 auto;
 }
 
 h1,
@@ -26,8 +56,6 @@ h1 span {
 
 h1 span:first-child {
   animation: anim-r-in-header 800ms ease 600ms forwards;
-  animation: name duration timing-function delay iteration-count direction
-    fill-mode;
 }
 
 @keyframes anim-r-in-header {
@@ -52,10 +80,79 @@ h1 span:last-child {
   }
 }
 
-.styledesc {
+/* .styledesc {
   font-weight: bold;
-}
+} */
 
 footer {
-  background: ;
+  margin: 2rem 0 0 0;
+  padding: 2rem;
+  width: 100vw;
+  /* position: fixed;
+  bottom: 0; */
+}
+
+.sold-out {
+  background-color: grey;
+  opacity: 0.4;
+  /* width: 100vw;
+  height: 100vh;
+  position: fixed; */
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.sold-out img {
+  mix-blend-mode: multiply;
+}
+
+/* .wrapper.sold-out {
+  position: relative;
+} */
+
+.sold-out > p:first-child {
+  font-size: 17vw;
+  padding: 6vw;
+  background-color: red;
+  position: absolute;
+  transform: translateY(calc(50vh - 50%)) translateX(calc(50vw - 50%))
+    rotate(30deg);
+}
+
+button {
+  background-color: yellowgreen;
+  font-size: 2rem;
+  width: 80%;
+  margin: 0 auto;
+  border: 5px hotpink dashed;
+  border-radius: 50%;
+  padding: 2rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+button span {
+  display: block;
+}
+
+button:hover {
+  border-radius: 0;
+  transform: rotate(-15deg);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  transform: rotate(375deg) scale(2.5);
+  background-color: greenyellow;
+}
+
+#price-box {
+  /* background: hotpink; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  justify-self: baseline;
 }
