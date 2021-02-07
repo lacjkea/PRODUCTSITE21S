@@ -15,18 +15,6 @@ body {
   word-wrap: break-word; /* for link in footer */
 }
 
-main {
-  display: grid;
-  max-width: 960px;
-  grid-template-columns: 1fr 1fr;
-}
-
-main h2,
-button,
-button + p {
-  grid-column: 1 / -1;
-}
-
 header,
 footer {
   background-color: teal;
@@ -123,12 +111,13 @@ button {
   background-color: yellowgreen;
   font-size: 2rem;
   width: 80%;
-  margin: 0 auto;
+  margin: 1rem auto;
   border: 5px hotpink dashed;
   border-radius: 50%;
   padding: 2rem;
   transition: 0.2s;
   cursor: pointer;
+  display: block;
 }
 
 button span {
@@ -155,4 +144,41 @@ button:active {
   flex-direction: column;
   justify-content: space-evenly;
   justify-self: baseline;
+}
+
+.center {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  background: silver;
+}
+
+.center img {
+  mix-blend-mode: multiply;
+}
+
+@media screen and (min-width: 680px) {
+  body {
+    /* background-color: blue; */
+  }
+
+  #wrapper {
+    max-width: 960px;
+  }
+  main {
+    display: grid;
+    /* max-width: 960px; */
+    grid-template-columns: 1fr 1fr;
+  }
+
+  main h2,
+  button + p,
+  button:last-of-type {
+    grid-column: 1 / -1;
+  }
+
+  button + p {
+    margin-top: 2rem;
+    /* background: red; */
+  }
 }
