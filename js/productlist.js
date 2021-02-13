@@ -1,5 +1,15 @@
 console.log("productlist.js");
 
+const urlParams = new URLSearchParams(window.location.search);
+const brandnameParam = urlParams.get("brandname");
+const productsUrl =
+  "https://kea-alt-del.dk/t7/api/products?brandname=" +
+  brandnameParam +
+  "&limit=100";
+
+document.querySelector(".brandname").textContent = brandnameParam;
+
+//!!!categories for nav!!!
 fetch("https://kea-alt-del.dk/t7/api/categories")
   .then((response) => {
     if (!response.ok) {
@@ -17,7 +27,7 @@ fetch("https://kea-alt-del.dk/t7/api/categories")
     console.error("An error occured:", e.message);
   });
 
-fetch("https://kea-alt-del.dk/t7/api/products?limit=100")
+fetch(productsUrl)
   .then((response) => {
     if (!response.ok) {
       throw Error(response.statusText);
