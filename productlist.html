@@ -6,26 +6,57 @@
     <title>lacj - x</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body data-id="xid">
+  <body class="body-productlist">
     <header class="main-nav">
       <h1>Tøjs <span>R</span> us <span>2</span></h1>
     </header>
-    <form action="">
-      <div>
-        <h4>Gender</h4>
-        <input type="checkbox" checked name="xmen" id="xmen" />
-        <label for="xmen">xmen</label>
-      </div>
-      <div>
-        <input type="checkbox" name="xwomen" id="xwomen" />
-        <label for="xwomen">women</label>
-      </div>
-      <div>
-        <input type="checkbox" name="other" id="other" />
-        <label for="other">other</label>
-      </div>
-    </form>
-
+    <div id="wrapper">
+      <form action="">
+        <fieldset>
+          <legend>Gender</legend>
+          <div>
+            <input type="checkbox" checked name="men" id="men" />
+            <label for="men">men</label>
+          </div>
+          <div>
+            <input type="checkbox" name="xwomen" id="xwomen" />
+            <label for="xwomen">women</label>
+          </div>
+          <div>
+            <input type="checkbox" name="other" id="other" />
+            <label for="other">other</label>
+          </div>
+        </fieldset>
+        <fieldset id="categories">
+          <legend>Categories</legend>
+          <template>
+            <div>
+              <input type="checkbox" name="accessories" id="accessories" />
+              <label for="other">{Accessories}</label>
+            </div>
+          </template>
+        </fieldset>
+      </form>
+      <template id="main-template">
+        <a href="product.html">
+          <article>
+            <div class="center">
+              <h2>{productdisplayname}</h2>
+              <img
+                src="https://kea-alt-del.dk/t7/images/webp/640/1163.webp"
+                alt="{productdisplayname}"
+              />
+              <div class="price-box">
+                <h3 class="price-old">DKK <span>3999</span>,-</h3>
+                <h3 class="price-discount"><span>0</span>% off</h3>
+                <h3 class="price">Only DKK <span>9999</span>,-</h3>
+              </div>
+            </div>
+          </article>
+        </a>
+      </template>
+      <main></main>
+    </div>
     <footer>
       <p>
         <em>
@@ -38,6 +69,6 @@
         </em>
       </p>
     </footer>
-    <script src="script.js"></script>
+    <script src="js/productlist.js"></script>
   </body>
 </html>

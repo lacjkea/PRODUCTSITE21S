@@ -1,6 +1,9 @@
 //console.log("hello");
-const id = 2801; //product ID
-const url = "https://kea-alt-del.dk/t7/api/products/" + id; //jofh: 2801
+//const id = 2801; //product ID
+const urlParams = new URLSearchParams(window.location.search);
+const idParam = urlParams.get("id");
+
+const url = "https://kea-alt-del.dk/t7/api/products/" + idParam; //2801
 //1. fetch Data
 
 fetch(url)
