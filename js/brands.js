@@ -13,10 +13,11 @@ grab template
 clone
 append 
 */
-
+//const i = 0; //testing for missing errors message in console? take care of the throw-catch in the fetch function... don't uncomment the catch part
+let i = 0;
 //part2
 
-const letters = "abcdefghijklmnopqrstuvwxyz";
+const letters = "abcdefghijklmnopqrstuvwxyz0123456789";
 const letterArray = letters.split("");
 //console.log(letterArray);
 
@@ -45,7 +46,7 @@ letterArray.forEach((letter) => {
 fetch("https://kea-alt-del.dk/t7/api/brands")
   .then((response) => {
     if (!response.ok) {
-      // throw Error(response.statusText);
+      throw Error(response.statusText);
     }
     return response.json();
   })
@@ -56,16 +57,18 @@ fetch("https://kea-alt-del.dk/t7/api/brands")
   })
   .catch((e) => {
     //Woops, something went wrong
-    //console.error("An error occured:", e.message);
+    console.error("An error occured:", e.message);
   });
 
 function handleData(data) {
   //console.log(data);
   data.forEach(showBrand);
-  console.log("hey");
+  //console.log("hey");
 }
 
 function showBrand(brand) {
+  i++;
+  console.log(i);
   //console.log(brand.brandname);
   const template = document.querySelector("template").content;
   const clone = template.cloneNode(true);
@@ -76,7 +79,7 @@ function showBrand(brand) {
   aEl.href = `productlist.html?brandname=${brand.brandname}`;
   //console.log(aEl);
 
-  const firstLetter = brand.brandname.charAt(0).toLowerCase();
+  const firstLetter = brand.brandname.toString().charAt(0).toLowerCase();
   //console.log(firstLetter);
 
   const topParentEl = document.querySelector(`#letter-${firstLetter}`);
