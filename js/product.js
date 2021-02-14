@@ -13,12 +13,16 @@ fetch(url)
 //2. populate the page
 function showProduct(product) {
   console.table(product);
-  //   document.querySelector("#main-nav ul li:nth-child(2) a").textContent = product;
-  document.querySelector("#main-nav ul li:nth-child(3) a").textContent =
-    product.brandname;
+
+  aEl = document.querySelector("#main-nav ul li:nth-child(3) a");
+  aEl.textContent = product.brandname;
+  aEl.href = `productlist.html?brandname=${product.brandname}`;
+
   const displayName = product.productdisplayname;
+
+  document.querySelector("main h2").textContent = displayName;
   document.querySelector(
-    "#main-nav ul li:nth-child(4) a"
+    "#main-nav ul li:nth-child(4)"
   ).textContent = displayName;
 
   //const imagePath = `https://kea-alt-del.dk/t7/images/webp/640/${id}.webp`;
@@ -26,4 +30,8 @@ function showProduct(product) {
   const imgEl = document.querySelector(".center img");
   imgEl.src = imagePath;
   imgEl.alt = displayName;
+
+  document
+    .querySelector("button:first-of-type")
+    .insertAdjacentHTML("afterend", product.description);
 }

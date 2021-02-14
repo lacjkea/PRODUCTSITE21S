@@ -71,46 +71,52 @@ function handleProductList(products) {
   console.table(products);
   products.forEach((sp) => {
     //const sp = product; //sp: singleproduct
-    console.log(sp);
+    console.log(sp.gender);
     //debugger;
-    const mainEl = document.querySelector("main");
-    const template = document.querySelector("#main-template").content;
-    const clone = template.cloneNode(true);
 
-    const aEl = clone.querySelector("a");
-    aEl.href = `product.html?id=${sp.id}`;
+    if (sp.gender === "Men") {
+      console.log("hey");
+      const mainEl = document.querySelector("main");
+      const template = document.querySelector("#main-template").content;
+      const clone = template.cloneNode(true);
 
-    const displayName = sp.productdisplayname;
-    clone.querySelector("h2").textContent = displayName;
+      const aEl = clone.querySelector("a");
+      aEl.href = `product.html?id=${sp.id}`;
 
-    const imagePath = `https://kea-alt-del.dk/t7/images/webp/640/${sp.id}.webp`;
-    const imgEl = clone.querySelector("img");
-    imgEl.src = imagePath;
-    imgEl.alt = displayName;
+      const displayName = sp.productdisplayname;
+      clone.querySelector("h2").textContent = displayName;
 
-    let price = sp.price;
+      const imagePath = `https://kea-alt-del.dk/t7/images/webp/640/${sp.id}.webp`;
+      const imgEl = clone.querySelector("img");
+      imgEl.src = imagePath;
+      imgEl.alt = displayName;
 
-    if (sp.soldout) {
-      const articleEl = clone.querySelector("article");
-      articleEl.classList.add("sold-out");
-      articleEl.parentElement.classList.add("no-pointer-events");
+      let price = sp.price;
+
+      if (sp.soldout) {
+        const articleEl = clone.querySelector("article");
+        articleEl.classList.add("sold-out");
+        articleEl.parentElement.classList.add("no-pointer-events");
+      }
+
+      if (sp.discount) {
+        const priceBoxEl = clone.querySelector(".price-box");
+        priceBoxEl.classList.add("onsale");
+
+        priceBoxEl.querySelector(".price-old").textContent = price;
+
+        const priceDiscountEl = priceBoxEl.querySelector(
+          ".price-discount span"
+        );
+        priceDiscountEl.textContent = sp.discount;
+
+        price = price - price * (sp.discount / 100);
+        price = Math.round(price);
+      }
+      const priceEl = clone.querySelector(".price span");
+      priceEl.textContent = price;
+      mainEl.appendChild(clone);
     }
-
-    if (sp.discount) {
-      const priceBoxEl = clone.querySelector(".price-box");
-      priceBoxEl.classList.add("onsale");
-
-      priceBoxEl.querySelector(".price-old").textContent = price;
-
-      const priceDiscountEl = priceBoxEl.querySelector(".price-discount span");
-      priceDiscountEl.textContent = sp.discount;
-
-      price = price - price * (sp.discount / 100);
-      price = Math.round(price);
-    }
-    const priceEl = clone.querySelector(".price span");
-    priceEl.textContent = price;
-    mainEl.appendChild(clone);
   });
 }
 

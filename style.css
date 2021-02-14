@@ -6,6 +6,12 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  /* https://css-tricks.com/almanac/properties/s/scroll-padding/ */
+}
+
 img {
   max-width: 100%;
 }
@@ -34,6 +40,68 @@ main {
   /* max-width: 960px; */
   grid-gap: 2rem;
 }
+
+#main-nav ul {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+#main-nav li {
+  margin-right: 18px;
+}
+
+#main-nav li + li:before {
+  content: ">";
+  margin-right: 15px;
+}
+
+.cat-nav {
+  position: sticky;
+  top: 0;
+}
+
+.cat-nav,
+[id^="letter-"] h2 {
+  text-transform: uppercase;
+}
+
+[id^="letter-"] li::marker {
+  color: red;
+  padding: 10px;
+}
+
+ul,
+[id^="letter-"] ol {
+  list-style-position: inside;
+}
+
+.body-categories .cat-nav ul {
+  list-style-type: none;
+  background: hotpink;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30px, 1fr)); */
+  width: 100%;
+  display: flex;
+  padding-left: 5vw;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* gap: 10px; */
+  justify-content: flex-start;
+}
+
+.body-categories .cat-nav li {
+  width: 30px;
+}
+
+section#letter-a {
+  margin-top: 40px;
+}
+
+/* .body-categories main {
+  margin-top: 20px;
+} */
 
 .body-productlist main {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -98,14 +166,33 @@ footer {
 
 main a {
   text-decoration: none;
+  color: black;
+}
+
+.top {
+  position: fixed;
+  bottom: 5vmin;
+  right: 5vmin;
+}
+
+a:hover {
+  color: greenyellow;
+}
+
+.body-categories a:hover {
+  background-color: black;
 }
 
 /* main a article {
   transition: background-color 0.6s;
 } */
 
-main a:hover article {
-  background-color: green;
+.body-productlist main a:hover {
+  color: black;
+}
+
+.body-productlist main a:hover article {
+  background-color: greenyellow;
   transition: background-color 0.6s;
 }
 
@@ -210,7 +297,7 @@ button:active {
 
 .center {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 4fr 3fr;
   grid-gap: 10px;
   padding: 10px;
 }
@@ -243,6 +330,10 @@ button:active {
   #wrapper {
     max-width: 960px;
   }
+
+  /* #main-nav ul {
+    flex-direction: row;
+  } */
 
   .body-single-product main {
     grid-template-columns: 1fr 1fr;

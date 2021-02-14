@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>lacj - x</title>
+    <title>List</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="body-productlist">
@@ -13,34 +13,38 @@
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li class="category"><a href="">Brands</a></li>
+          <li class="category"><a href="brands.html">Brands</a></li>
           <li class="brandname"><a href="">{Nike}</a></li>
-          <li><a href="">{Product name}</a></li>
         </ul>
       </nav>
     </header>
     <div id="wrapper">
       <form action="">
         <fieldset>
-          <legend>Gender</legend>
+          <legend>Gender - not clickable</legend>
           <div>
-            <input type="checkbox" checked name="men" id="men" />
-            <label for="men">men</label>
+            <input type="checkbox" checked disabled name="men" id="men" />
+            <label for="men">men [filterview for men only here]</label>
           </div>
           <div>
-            <input type="checkbox" name="xwomen" id="xwomen" />
+            <input type="checkbox" disabled name="xwomen" id="xwomen" />
             <label for="xwomen">women</label>
           </div>
           <div>
-            <input type="checkbox" name="other" id="other" />
+            <input type="checkbox" disabled name="other" id="other" />
             <label for="other">other</label>
           </div>
         </fieldset>
         <fieldset id="categories">
-          <legend>Categories</legend>
+          <legend>Categories - not clickable</legend>
           <template>
             <div>
-              <input type="checkbox" name="accessories" id="accessories" />
+              <input
+                type="checkbox"
+                disabled
+                name="accessories"
+                id="accessories"
+              />
               <label for="other">{Accessories}</label>
             </div>
           </template>
